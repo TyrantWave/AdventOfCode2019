@@ -3,6 +3,7 @@ use std::io::{BufRead, BufReader};
 
 mod fuel;
 
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let file = File::open("src/inputs")?;
     let buffered = BufReader::new(file);
@@ -11,7 +12,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     for line in buffered.lines() {
         let mass = line?.parse::<i32>()?;
-        let mass_fuel = fuel::fuel(mass);
+        let mass_fuel = fuel::total_fuel(mass);
         println!("Module mass: {}, fuel needed: {}", mass, mass_fuel);
         fuel_needed += mass_fuel;
         total_modules += 1;
