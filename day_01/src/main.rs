@@ -3,7 +3,6 @@ use std::io::{BufRead, BufReader};
 
 mod fuel;
 
-
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let file = File::open("src/inputs")?;
     let buffered = BufReader::new(file);
